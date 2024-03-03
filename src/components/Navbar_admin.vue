@@ -1,6 +1,8 @@
 <template>
 <!-- left -->
-<div class="fixed w-[167px] h-screen bg-[#FFF] pl-[30px] pt-[40px] border-r-[1px] border-solid border-gray_l "
+<div class="fixed w-[150px] h-screen bg-[#FFF]  pt-[20px] border-r-[1px] border-solid border-gray_l 
+md:flex flex-col items-center
+hidden"
 style="z-index: 500;" >
 			<!-- logo -->
 			<div class="mb-[40px] pl-[10px]" @mouseenter='hover(-1)'>
@@ -20,7 +22,7 @@ style="z-index: 500;" >
 			</div>
 
 			<!-- 選項區 -->
-			<div class=" flex flex-col absolute top-[150px] ">
+			<div class=" flex flex-col absolute top-[120px] ">
 				<!--後臺首頁 -->
 				<router-link to="/back">
 								<div
@@ -49,7 +51,7 @@ style="z-index: 500;" >
 										</svg>
 									</div>
 									<span @mouseenter='hover(0)'>
-										<!-- {{$t('Home')}} -->
+										首頁
 									</span>
 								</div>
 				</router-link>
@@ -77,50 +79,14 @@ style="z-index: 500;" >
 										
 								</div>
 								<span @mouseenter='hover(5)'>
-									<!-- {{$t('Register for Competition')}} -->
-									</span>
+									搜尋日程
+								</span>
 
 									
 								</div>
 				</router-link>
 
-				<!-- 賽事管理 -->
-				<router-link to="/back/allCompetitions">
-								<div
-									class="w-auto h-[20px] mb-[30px] text-[16px]  text-[#222] flex gap-[10px] items-center relative"
-									  :class="{ 'text-[#222]' : !isHoldingPage && !isCompetitionPage ,}"
-								>
-							
-                <div 
-                    v-if="isCompetitionPage || isHoldingPage"
-									>
-										<div class="w-[107px] h-[32px] bg-[#E0F6E9] rounded-[4px] absolute translate-y-[-15%] translate-x-[-5%] " style="z-index:-10;"></div>
-									<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M2 10.566V7C2 6.52661 2.38721 6.14286 2.86486 6.14286H4.59459C5.07225 6.14286 5.45946 6.52661 5.45946 7V12.0124C5.45946 12.7416 4.59919 13.1378 4.03687 12.6675L2.30714 11.2211C2.11238 11.0583 2 10.8186 2 10.566Z" fill="#222222"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M6.32432 4.85714V12.3611C6.32432 13.4429 6.83944 14.4612 7.71403 15.1084L8.68874 15.8297C8.83818 15.9403 9.01968 16 9.20618 16H10.7938C10.9803 16 11.1618 15.9403 11.3113 15.8297L12.286 15.1084C13.1606 14.4612 13.6757 13.4429 13.6757 12.3611V4.85714C13.6757 4.38376 13.2885 4 12.8108 4H7.18919C6.71154 4 6.32432 4.38376 6.32432 4.85714ZM10.6486 6.88C10.6486 6.64331 10.455 6.45143 10.2162 6.45143C9.97739 6.45143 9.78378 6.64331 9.78378 6.88C9.78378 7.10756 9.68563 7.27972 9.49521 7.44881C9.30931 7.61389 9.07262 7.74453 8.80335 7.89314L8.70763 7.94607C8.49925 8.06172 8.42493 8.32288 8.54162 8.5294C8.65831 8.73592 8.92183 8.80958 9.13021 8.69393C9.16024 8.67726 9.19166 8.66001 9.2242 8.64215C9.39319 8.54938 9.59237 8.44003 9.78378 8.30965V11.2514H8.48649C8.24766 11.2514 8.05405 11.4433 8.05405 11.68C8.05405 11.9167 8.24766 12.1086 8.48649 12.1086H11.5135C11.7523 12.1086 11.9459 11.9167 11.9459 11.68C11.9459 11.4433 11.7523 11.2514 11.5135 11.2514H10.6486V6.88Z" fill="#222222"/>
-<path d="M18 10.566V7C18 6.52661 17.6128 6.14286 17.1351 6.14286H15.4054C14.9278 6.14286 14.5405 6.52661 14.5405 7V12.0124C14.5405 12.7416 15.4008 13.1378 15.9631 12.6675L17.6929 11.2211C17.8876 11.0583 18 10.8186 18 10.566Z" fill="#222222"/>
-								</svg>
-
-									
-								</div>
-									<div v-else >
-										<div v-if="showHover == 1"
-										class="w-[107px] h-[32px] bg-[#00000010] rounded-[4px] absolute translate-y-[-15%] translate-x-[-5%]  hover:text-white" style="z-index:-10;"></div>
-									<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M2 10.566V7C2 6.52661 2.38721 6.14286 2.86486 6.14286H4.59459C5.07225 6.14286 5.45946 6.52661 5.45946 7V12.0124C5.45946 12.7416 4.59919 13.1378 4.03687 12.6675L2.30714 11.2211C2.11238 11.0583 2 10.8186 2 10.566Z" fill="#222"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M6.32432 4.85714V12.3611C6.32432 13.4429 6.83944 14.4612 7.71403 15.1084L8.68874 15.8297C8.83818 15.9403 9.01968 16 9.20618 16H10.7938C10.9803 16 11.1618 15.9403 11.3113 15.8297L12.286 15.1084C13.1606 14.4612 13.6757 13.4429 13.6757 12.3611V4.85714C13.6757 4.38376 13.2885 4 12.8108 4H7.18919C6.71154 4 6.32432 4.38376 6.32432 4.85714ZM10.6486 6.88C10.6486 6.64331 10.455 6.45143 10.2162 6.45143C9.97739 6.45143 9.78378 6.64331 9.78378 6.88C9.78378 7.10756 9.68563 7.27972 9.49521 7.44881C9.30931 7.61389 9.07262 7.74453 8.80335 7.89314L8.70763 7.94607C8.49925 8.06172 8.42493 8.32288 8.54162 8.5294C8.65831 8.73592 8.92183 8.80958 9.13021 8.69393C9.16024 8.67726 9.19166 8.66001 9.2242 8.64215C9.39319 8.54938 9.59237 8.44003 9.78378 8.30965V11.2514H8.48649C8.24766 11.2514 8.05405 11.4433 8.05405 11.68C8.05405 11.9167 8.24766 12.1086 8.48649 12.1086H11.5135C11.7523 12.1086 11.9459 11.9167 11.9459 11.68C11.9459 11.4433 11.7523 11.2514 11.5135 11.2514H10.6486V6.88Z" fill="#222"/>
-<path d="M18 10.566V7C18 6.52661 17.6128 6.14286 17.1351 6.14286H15.4054C14.9278 6.14286 14.5405 6.52661 14.5405 7V12.0124C14.5405 12.7416 15.4008 13.1378 15.9631 12.6675L17.6929 11.2211C17.8876 11.0583 18 10.8186 18 10.566Z" fill="#222"/>
-</svg>
-
-										
-								</div>
-								<span @mouseenter='hover(1)'>
-									<!-- {{$t('Event Management')}} -->
-									</span>
-
-									
-								</div>
-				</router-link>
+			
 
 				<!-- 球隊管理 -->
 				<div
@@ -143,7 +109,7 @@ style="z-index: 500;" >
 								</svg>
 								</div>
 										<span @mouseenter='hover(2)'>
-										<!-- {{$t('Team Management')}} -->
+											個人資料
 										</span>
 				</div>
 
@@ -167,7 +133,7 @@ style="z-index: 500;" >
 									</div>
 									
 									<p class="cursor-pointer inline h-[20px] leading-[16px] ml-[6px]" @mouseenter='hover(3)'>
-										球員分析
+										日程分析
 									</p>
 						</div>
 
@@ -179,8 +145,9 @@ style="z-index: 500;" >
 
 
 <header
-				class="w-[calc(100vw-167px)] h-[60px] fixed top-0 left-[167px] flex flex-wrap sm:justify-start sm:flex-nowrap  bg-[#FFF] text-sm pl-[2vw] pr-[2vw] py-[12px]
-				border-b-[1px] border-solid border-gray_l"
+				class="w-screen h-[60px] fixed top-0  p flex-wrap sm:justify-start sm:flex-nowrap  bg-[#FFF] text-sm pl-[2vw] pr-[2vw] py-[12px]
+				border-b-[1px] border-solid border-gray_l
+				hidden"
         @click="closeMenuOnClickOutside"
 				style=" z-index: 100"
 			>
@@ -299,7 +266,7 @@ style="z-index: 500;" >
 						
 							
 							<div class="w-full  h-[44px] text-[16px]  text-start  mt-[106px] absolute text-gray_m leading-[44px]" @click="logout()">
-								{{ $t('Logout') }}
+								<!-- {{ $t('Logout') }} -->
 							</div>
 
 							<!-- @click="$store.CLEAR_USER" -->
@@ -316,12 +283,12 @@ import { defineProps, defineEmits, ref, onMounted, watch } from 'vue';
 
 // import { usePlayersStore } from "../../src/stores/player.js";
 
-// import { useRouter, useRoute } from "vue-router";
+import { useRouter, useRoute } from "vue-router";
 const router = useRouter();
 const route = useRoute();
 
-const $store = useUserStore();
-const $AdminStore = useAdminStore();
+// const $store = useUserStore();
+// const $AdminStore = useAdminStore();
 
 const props = defineProps(['open', 'data']);
 const emit = defineEmits();

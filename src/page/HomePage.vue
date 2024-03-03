@@ -1,5 +1,32 @@
 <template>
-  <h1>hello</h1>
+  <div 
+	class="bg-green_lightest relative h-screen w-screen">
+  <Navbar/>
+	<!-- <GoTop/> -->
+		
+
+  <div class="w-[calc(100vw-210px)] left-[167px] bg-green_lightest  h-auto relative pb-[30px] pt-[60px]">
+
+
+
+	<!-- 輪數設定section-->
+     <!-- <Round 
+   :tid="tid" :userToken="userToken"
+   :saveAll_api="saveAll_api" :open="openRound"
+  @roundFinished="toggle_openSchedule()"
+   >
+
+   </Round> -->
+	
+	
+	<!-- 安排競賽日程 -->
+	<Schedule  :tid="tid" :userToken="userToken"
+  :open='!openSchedule'
+  @showSchedule="toggle_openRound()"></Schedule>
+
+
+  </div>
+  </div>
 </template>
 
 <script setup>
@@ -31,12 +58,12 @@ const now_cid = route.params.cid
 
 
 // userToken
-  const userToken_localStorage = JSON.parse(localStorage.getItem("userToken"))
-  const userToken =userToken_localStorage.userToken
+  // const userToken_localStorage = JSON.parse(localStorage.getItem("userToken"))
+  // const userToken =userToken_localStorage.userToken
 
-	// tid
-  const tid_localStorage = JSON.parse(localStorage.getItem('now_Team'))
-  const tid = tid_localStorage.now_Team
+	// // tid
+  // const tid_localStorage = JSON.parse(localStorage.getItem('now_Team'))
+  // const tid = tid_localStorage.now_Team
 
 // 判斷 競賽日期  是否大於今天 => 提示顯示與否
 const isPastDate = (dateString) => {
@@ -69,3 +96,6 @@ watch(openSchedule,(newVal)=>{
 
 
 </script>
+
+
+

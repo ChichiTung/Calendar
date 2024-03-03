@@ -29,9 +29,7 @@
     <!-- 標題列 -->
     <div class=" flex  justify-between items-center leading-[96px] mb-[20px]" id="hold_Section4">
       <div class="flex gap-[10px] items-center text-[24px] text-[#222] font-semibold">
-         <img v-if="!scheduleExist"
-        src="../../../assets/images/admin/check.png" class="w-[30px] h-[30px] ">
-        <img v-else src="../../../assets/images/admin/check_black.png" class="w-[30px] h-[30px] ">
+         
       <p>安排競賽日程</p>
       </div>
 
